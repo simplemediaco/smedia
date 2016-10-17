@@ -1,0 +1,45 @@
+.tooltip {
+	position: absolute;
+	top: 10px;
+	right: 30px;
+	cursor: pointer;
+	z-index: 100;
+}
+
+.tooltip--checkbox {
+	top: 4px;
+	right: 12px;
+}
+
+.tooltip__icon {
+	padding: 4px;
+
+	svg {
+		display: block;
+
+		path,
+		circle {
+			stroke: $grey3;
+		}
+	}
+
+	&:hover ~ .tooltip__content {
+		opacity: 1;
+		visibility: visible;		
+	}
+}
+
+.tooltip__content {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	width: 180px;
+	font-size: 14px;
+	background-color: $teal1;
+	color: $white;
+	text-align: left;
+	padding: 10px;
+	opacity: 0;
+	visibility: hidden;
+	@include vendor(transition, all 0.3s);
+}

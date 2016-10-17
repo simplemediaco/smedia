@@ -1,0 +1,51 @@
+/**
+ * ACCORDION
+ */
+
+.accordion__title {
+	cursor: pointer;
+	@include vendor(user-select, none);
+
+	&.open .accordion__square::before {
+		display: none;
+	}
+}
+
+.accordion__content-wrap {
+	height: 0;
+	overflow: hidden;
+	@include vendor(transition, height 0.5s);
+}
+
+.accordion__square {
+	border: 1px solid $teal1;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	position: relative;
+
+	&::after,
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+
+	&::after {
+		width: 9px;
+		height: 1px;
+		background-color: $teal1;
+		top: 50%;
+		left: 50%;
+		@include vendor(transform, translate(-50%, -50%));
+	}
+
+	&::before {
+		width: 1px;
+		height: 9px;
+		background-color: $teal1;
+		top: 50%;
+		left: 50%;
+		@include vendor(transform, translate(-50%, -50%));
+	}
+}

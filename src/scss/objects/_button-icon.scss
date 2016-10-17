@@ -1,0 +1,13 @@
+/**
+ * button with icon
+ */
+
+.button-icon {
+	display: inline-block;
+}
+
+.button-icon__wrap {
+	margin-left: -4px;
+	@include vendor(display, flex);
+	@include vendor(align-items, center);
+}

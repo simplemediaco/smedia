@@ -1,0 +1,72 @@
+.order-nav__item {
+	padding: 0 30px;
+	height: 320px;
+	cursor: pointer;
+
+	&.active {
+		background: $white;
+
+		.order-nav__title {
+			color: $teal1;
+		}
+	}
+}
+
+.order-nav__item-wrap {
+	position: relative;
+	top: 50%;
+	@include vendor(transform, translateY(-50%));
+}
+
+.order-package {
+	position: relative;
+	height: 100%;
+	padding: 50px 20px 100px;
+}
+
+.order-button {
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	width: 160px;
+	@include vendor(transform, translateX(-50%));
+}
+
+.order-service {
+	display: none;
+
+	&.active {
+		display: block;
+	}
+}
+
+.order-next {
+	text-align: center;
+}
+
+.order-contract {
+	min-height: 300px;
+}
+
+.order-question-svg {
+	width: 100px;
+}
+
+.order-checkbox-tooltip {
+	&:hover {
+		z-index: 200;
+	}
+}
+
+// brands
+.brand-included {
+	background-color: $white;
+	padding: 50px 20px;
+}
+
+// desktop view
+@media (min-width: $desk-start) {
+	.order-next {
+		text-align: right;
+	}
+}

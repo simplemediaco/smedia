@@ -1,0 +1,170 @@
+/**
+ * NAVIGATION
+ */
+
+.navigation {
+	position: absolute;
+	width: 100%;
+	z-index: 900;
+
+	&.open .navigation__logo {
+		.group {
+			fill: $white;
+		}
+	}
+}
+
+.navigation__wrap {
+	position: relative;
+	z-index: 200;
+	padding-top: 16px;
+	@include vendor(display, flex);
+	@include vendor(align-items, center);
+	@include vendor(justify-content, space-between);
+}
+
+.navigation__logo {
+	display: block;
+	width: 56px;
+
+	img {
+		display: block;
+	}
+
+	.group {
+		fill: $teal1;
+	}
+}
+
+.navigation__hamburger {
+	background-color: transparent;
+	cursor: pointer;
+	display: block;
+	height: 32px;
+	width: 32px;
+	border: 0;
+	outline: none;
+	padding: 0;
+	position: relative;
+
+	&::before,
+	&::after {
+		content: "";
+		@include vendor(transform-origin, 50% 50%);
+		@include vendor(transition, transform 0.3s);
+	}
+
+	&::before,
+	&::after,
+	span {
+		display: block;
+		height: 1px;
+		width: 100%;
+		position: absolute;
+		background-color: $white;
+		top: 50%;
+		@include vendor(transform, translateY(-50%));
+	}
+
+	span {
+		opacity: 1;
+		visibility: visible;
+		@include vendor(transition, opacity 0.3s);
+	}
+
+	&::before {
+		@include vendor(transform, translateY(-10px));
+	}
+
+	&::after {
+		@include vendor(transform, translateY(10px));
+	}
+
+	&.open {
+		span {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		&::before {
+			@include vendor(transform, translateY(0) rotate(135deg));
+		}
+
+		&::after {
+			@include vendor(transform, translateY(0) rotate(-135deg));
+		}
+	}
+
+	&.light {
+		&::before,
+		&::after,
+		span {
+			background-color: $teal1;		
+		}
+	}
+
+	&.light.open {
+		&::before,
+		&::after,
+		span {
+			background-color: $white;
+		}
+	}
+}
+
+/**
+ * navigation__menu
+ */
+.navigation__menu {
+	background-color: $teal1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+	visibility: hidden;
+	opacity: 0;
+	@include vendor(transition, all 0.3s);
+
+	&.open {
+		visibility: visible;
+		opacity: 1;
+
+		.navigation__menu-wrap {
+			opacity: 1;
+			visibility: visible;
+			max-width: 1200px;
+			text-align: center;
+		}
+	}
+}
+
+.navigation__menu-wrap {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	visibility: hidden;
+	opacity: 0;
+	@include vendor(transform, translate(-50%, -50%));
+}
+
+.navigation__menu-link {
+	font-size: 36px;
+	display: block;
+}
+
+// tablet view
+@media (min-width: $lap-start) {
+	.navigation__menu-link {
+		font-size: 54px;
+	}
+}
+
+// desktop view
+@media (min-width: $desk-start) {
+	.navigation__menu-link {
+		font-size: 48px;
+	}
+}

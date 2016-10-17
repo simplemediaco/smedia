@@ -1,0 +1,19 @@
+.checkbox-two {
+	padding: 50px 20px;
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+	@include vendor(user-select, none);
+
+	&.active {
+		background-color: $white;
+	}
+
+	input {
+		display: none;
+	}
+}
+
+.checkbox-two__label {
+	color: $grey1;
+}

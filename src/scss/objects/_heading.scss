@@ -1,0 +1,14 @@
+/**
+ * HEADING
+ */
+
+ .heading {
+	font-size: 36px;
+ }
+
+ // tablet view
+ @media (min-width: $lap-start) {
+ 	.heading {
+ 		font-size: 48px;
+ 	}
+ }

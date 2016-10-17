@@ -1,21 +1,30 @@
-#Astral
-###PHP Single Page Site
-#####[View a demo here](http://astral.cosmicapp.co/)
-[Sign up for Cosmic JS](https://cosmicjs.com/) to start managing content for your websites and applications faster and easier.
-####Get Started
-In ```config.php``` set your bucket slug:
-```
-$config = new stdClass();
-$config->bucket_slug = "astral"; // bucket slug
-$config->read_key = ""; // leave empty if not required
-$config->write_key = ""; // leave empty if not required
-```
 
-Set up your local server by running [PHP's built-in web server](http://php.net/manual/en/features.commandline.webserver.php).  Run the following commands in your terminal:
+     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
+    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
+    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
+    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
+     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
+    ----------------------------------------------------------------- 
 
-```
-cd astral
-php -S localhost:8000
-```
 
-Go to [http://localhost:8000](http://localhost:8000) in your browser of choice.
+Hi there! Welcome to Cloud9 IDE!
+
+To get you started, we have created a small hello world application.
+
+1) Open the hello-world.php file
+
+2) Follow the run instructions in the file's comments
+
+3) If you want to look at the Apache logs, check out ~/lib/apache2/log
+
+And that's all there is to it! Just have fun. Go ahead and edit the code, 
+or add new files. It's all up to you! 
+
+Happy coding!
+The Cloud9 IDE team
+
+
+## Support & Documentation
+
+Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
+To watch some training videos, visit http://www.youtube.com/user/c9ide

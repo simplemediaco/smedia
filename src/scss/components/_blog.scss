@@ -1,9 +1,0 @@
-/**
- * BLOG
- */
-.blog__icon-logo {
-	left: 50%;
-	top: -32px;
-	position: absolute;
-	@include vendor(transform, translateX(-50%));
-}

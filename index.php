@@ -11,9 +11,11 @@ if(isset($_REQUEST['slug']))
 
 else
 {
-	$slug = $_SERVER['REQUEST_URI'];
-	$slug = explode("/",$slug);
-	$config->object_slug = $slug[1];
+	$string = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+	
+	$config->object_slug =array_pop(explode('/', $string));
+	
 	
 if($config->object_slug=='')
 	{

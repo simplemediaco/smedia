@@ -6,7 +6,10 @@
 <?php
 foreach($object as $data)
 	{
+		 
+				//print_r($data);
 ?>
+
 <!-- banner -->
 <div class="banner background-c-teal1">
 	<!-- banner__wrap -->
@@ -18,8 +21,28 @@ foreach($object as $data)
 		</div>
 	</div>
 	<!-- banner__wrap -->
-	<div class="banner__bg" style="background: url(dist/img/parking_day_01.jpg) no-repeat center / cover"></div>
-	<!-- banner__scroll -->
+   
+				
+				
+				
+		<?php
+		foreach($data->metafields as $img_head)
+				{
+					$test = (array)$img_head;
+						if($test['key']=='header_image')
+					{
+						//echo $test['url'];
+					//print_r($test);
+					?>
+                    	<div class="banner__bg" style="background: url(<?php echo $test['url']; ?>) no-repeat center / cover"></div>
+                    <?php 
+					$header_image = $test['url'];
+					}
+		?>		
+				
+
+	<?php } ?>
+    <!-- banner__scroll -->
 	<div class="banner__scroll">
 		<svg class="icon icon--l" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 			<use class="icon__white" xlink:href="#ic-scroll" />
@@ -29,4 +52,4 @@ foreach($object as $data)
 </div>
 <!-- banner -->
 <?php 
-	} ?>
+			 } ?>

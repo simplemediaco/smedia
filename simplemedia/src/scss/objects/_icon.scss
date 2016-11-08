@@ -1,0 +1,111 @@
+/**
+ * ICON
+ */
+
+/**
+ * Sample usage of icon
+ * 
+ * Sizes:
+ * .icon default class is 24x24
+ * .icon--s 18x18 icon
+ * .icon--l 32x32 icon
+ * .icon--xl 48x48 icon
+ *
+ * Colors:
+ * will be added on <use> tag
+ * .icon__grey1
+ * .icon__teal1
+ * 
+ * 	<svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+ *	 	<use class="icon__teal1" xlink:href="#ic-checkout" />
+ *	</svg>
+ *
+ */
+
+/**
+ * Default icon
+ */
+.icon {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+
+	// remove default fill from use
+	use {
+		fill: none;
+	}
+}
+
+.icon__img {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	@include vendor(transform, translate(-50%, -50%));
+}
+
+/**
+ * Icon colors
+ */
+.icon__grey1 {
+	stroke: $grey1;
+}
+
+.icon__teal1 {
+	stroke: $teal1;
+}
+
+.icon__white {
+	stroke: $white;
+}
+
+/**
+ * Icon sizes
+ */
+.icon--xxs {
+	width: 12px;
+	height: 12px;
+}
+
+.icon--xs {
+	width: 16px;
+	height: 16px;
+}
+
+.icon--s {
+	width: 18px;
+	height: 18px;
+}
+
+.icon--l {
+	width: 32px;
+	height: 32px;
+}
+
+.icon--xl {
+	width: 48px;
+	height: 48px;
+}
+
+.icon--xxl {
+	width: 56px;
+	height: 56px;
+}
+
+.icon--xxxl {
+	width: 64px;
+	height: 64px;
+}
+
+/**
+ * Icon rounded
+ */
+.icon--round {
+	@include vendor(border-radius, 100%);
+}
+
+/**
+ * Icon background
+ */
+.icon-b-white {
+	background-color: $white;
+}

@@ -4,18 +4,26 @@
 	
 	<!-- content -->
 	<?php
-	print_r($object);
+foreach($object as $data)
+	{
 	?>
 	<div class="padding-t-100 padding-b-100">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-10 col-sm-offset-1">
-					<div class="heading font-f-simplifica margin-b-30">Parking Day</div>
-					<div class="font-s-m margin-b-30">LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create slimmer, more portable technology than we’ve ever had access to before. From your wrist watch to your laptop, a lot of the on the go electronics that we tote from place to place are only possible because of their thin, light LCD display screens.</div>
+					<div class="heading font-f-simplifica margin-b-30"><?php echo $data->title; ?></div>
+					<div class="font-s-m margin-b-30"><?php echo $data->content; ?></div>
 					<div class="font-f-sansation margin-b-30">
 						<div class="font-c-teal1">Services</div>
-						<div>Branding, Web Design, Frontend and Backend Development</div>
-					</div>
+                        	<?php
+		foreach($data->metafields as $ser)
+				{
+					$test = (array)$ser;
+						if($test['key']=='services')
+					{ ?>
+						<div><?php echo $test['value']; ?></div>
+				<?php } } ?>
+                	</div>
 					<a href="" class="button-icon">
 						<div class="button-icon__wrap">
 							<svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -31,23 +39,79 @@
 	<!-- content -->
 
 	<!-- image -->
+
+					
 	<div class="background-c-grey4 padding-t-100 padding-b-50">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-6 margin-b-40">
-					<div class="aspect-ratio-1-1" style="background: url(dist/img/parking_day_03.jpg) no-repeat center / cover"></div>
-				</div>
-				<div class="col-xs-12 col-sm-6 margin-b-40">
-					<div class="aspect-ratio-1-1" style="background: url(dist/img/parking_day_04.jpg) no-repeat center / cover"></div>
-				</div>
-				<div class="col-xs-12 margin-b-40">
-					<div class="aspect-ratio-2-1" style="background: url(dist/img/parking_day_02.jpg) no-repeat center / cover"></div>
+         <?php 	
+		 $branding_Array = '';
+		 foreach($data->metafields as $brand)
+					{
+						$brnd_image = (array)$brand;
+						if($brnd_image['key']=='branding_images')	
+							{
+									foreach($brnd_image['children'] as $brad_set)
+										{
+											$i=0;
+											foreach($brad_set as $dataset)
+											{ 
+												foreach($dataset as $final_data)
+												{
+													
+												//echo "brand";
+												$test1 = (array)$final_data;
+											//	print_r($test1);
+												if($test1['value'] != '' && $test1['key']=='image')
+													{
+														$branding_Array[$test1['key']] = $test1['url'];
+													}
+													else
+														{
+															$branding_Array[$test1['key']] = $test1['value'];
+														}
+													
+												//print_r($test1);
+												
+												?>
+                                            
+												<?php
+											 }
+										
+										  }
+										  $clas = '';
+										  
+										  if($branding_Array['image'])
+										  {
+											 
+											  if($branding_Array['size']=='100%')
+											  	{
+													$clas='';
+												  }
+												  else
+												  	{
+															$clas='col-sm-6';
+													  
+													  }
+										  ?>
+                                          
+ <div class="col-xs-12 <?php echo $clas; ?> margin-b-40">
+<div class="aspect-<?php echo $branding_Array['ratio']; ?>" style="background: url(<?php echo $branding_Array['image']; ?>) no-repeat center / cover"></div>
+                                          <?php }
+										//  print_r($branding_Array);
+										   //exit("2nd level");
+										}
+								
+							}
+						
+					}
+				?>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- image -->
-
+<?php } ?>
 	<!-- next project -->
 	<div class="project-nav">
 		<div class="project-nav__label">

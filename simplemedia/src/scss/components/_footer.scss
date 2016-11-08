@@ -1,0 +1,82 @@
+/**
+ * FOOTER
+ */
+
+.footer__form-txt {
+	background-color: transparent;
+	border: 0;
+	border-left: 1px solid $white;
+	color: $white;
+	padding: 13px 8px;
+	outline: none;
+	width: 100%;
+
+	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		color: $teal2;
+	}
+
+	&::-moz-placeholder { /* Firefox 19+ */
+		color: $teal2;
+	}
+
+	&:-ms-input-placeholder { /* IE 10+ */
+		color: $teal2;
+	}
+
+	&:-moz-placeholder { /* Firefox 18- */
+		color: $teal2;
+	}
+}
+
+.footer__form-btn-icon {
+	background-color: transparent;
+	border: 0;
+	padding: 0 10px;
+	margin: 0;
+	outline: none;
+	cursor: pointer;
+}
+
+.footer__menu-link {
+	display: inline-block;
+}
+
+.footer__img {
+	width: 100%;
+	height: 400px;
+}
+
+.footer__contact {
+	padding: 50px 20px;
+	max-width: 700px;
+}
+
+// tablet view
+@media (min-width: $lap-start) {
+	.footer__wrap {
+		@include vendor(display, flex);
+		@include vendor(flex-wrap, wrap);
+	}
+
+	.footer__img {
+		width: 40%;
+		height: 580px;
+	}
+
+	.footer__contact {
+		padding: 50px 20px 50px;
+		width: 60%;
+	}
+}
+
+@media (min-width: $desk-start) {
+	.footer__img {
+		width: 35%;
+		height: 600px;
+	}
+
+	.footer__contact {
+		width: 65%;
+		padding: 80px 20px 80px 100px;
+	}
+}

@@ -1,0 +1,14 @@
+.radio {
+	padding: 20px;
+	text-align: center;
+	cursor: pointer;
+	@include vendor(user-select, none);
+
+	&.active {
+		background-color: $white;
+	}
+
+	input {
+		display: none;
+	}
+}

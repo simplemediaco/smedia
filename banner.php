@@ -1,6 +1,6 @@
 
 <?php
-//$object = $cosmicjs->getObject();
+$object = $cosmicjs->getBanner();
 //print_r($object);
 
 ?>
@@ -16,15 +16,14 @@
 				
 			?> 
 			
-			<source src="<?php echo $meta->url; ?>" type="video/mp4">
+			<source src="<?php echo $meta->value; ?>" type="video/mp4">
 			
 			<?php	
 			
 			}
 		
 	}
-		?>
-			
+		?>		
 		</video>
 	</div>
 	<!-- banner__wrap -->

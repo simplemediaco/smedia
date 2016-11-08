@@ -1,0 +1,44 @@
+/**
+ * CHECKBOX
+ */
+
+.checkbox {
+	@include vendor(display, flex);
+}
+
+.checkbox__square {
+	border: 1px solid $teal1;
+	cursor: pointer;
+	margin-right: 10px;
+	width: 16px;
+	height: 16px;
+	position: relative;
+	@include vendor(flex, none);
+
+	&.checked {
+		svg {
+			display: block;
+		}
+	}
+
+	svg {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 10px;
+		@include vendor(transform, translate(-50%, -50%))
+
+		path {
+			stroke: $teal1;
+		}
+	}
+}
+
+.checkbox__label {
+	position: relative;
+	top: -2px;
+	line-height: 20px;
+	cursor: pointer;
+	@include vendor(user-select, none);
+}

@@ -1,5 +1,5 @@
-<?php require_once('header.php'); ?>
-<?php require_once('navigation.php'); ?>
+<?php //dddrequire_once('header.php'); ?>
+<?php //require_once('navigation.php'); ?>
 <?php require_once('banner-works.php'); ?>
 	
 	<!-- works -->
@@ -42,4 +42,4 @@
 		</div>
 	</div>
 
-<?php require_once('footer.php'); ?>
+<?php //require_once('footer.php'); ?>

@@ -27,16 +27,7 @@ $config->media_url = $config->url . "/media";
 $config->add_object_url = $config->url . "/add-object";
 $config->edit_object_url = $config->url . "/edit-object";
 $config->delete_object_url = $config->url . "/delete-object";
-if(isset($_REQUEST['slug']))
-{
-	$config->object_slug = $_REQUEST['slug'];
-}
-else
-{
-	$config->object_slug = 'banner-video';
-}
-//$config->object_slug = 'banner-video';
-$config->object_type = 'our-works';
-include("cosmicjs.php");
-$object = $cosmicjs->getObject();
+
+
+$svg_array = array("Business Card"=>"business-card","Social Media Profile"=>"social-media","Gift Bag"=>"gift-bag","Poster"=>"ic-poster","Brochure"=>"brochure","PSD"=>"photoshop","Sketch"=>"sketch","HTML5"=>"html5","CSS3"=>"css3","JavaScript"=>"js","Wordpress"=>"wordpress","CosmicJS"=>"cosmicjs","Shopify"=>"shopify","CorePHP"=>"php","Google Partner"=>"google-partner","Bing Accredited"=>"bing","Facebook Ads"=>"fb-ads","HubSpot Inbound Partner"=>"hubspot","HubSpot Partner"=>"hubspot","HubSpot Partner Certified"=>"hubspot","Stationary"=>"stationary" );
 ?>

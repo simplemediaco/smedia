@@ -18,7 +18,7 @@ $config->object_type = 'our-works';
 include("cosmicjs.php");
 $header_image ='';
 $services = '';
-$aspect_ratio '';
+$aspect_ratio ='';
 $objects = $cosmicjs->getObjectType();
 			//echo "here";
 			//print_r($objects);

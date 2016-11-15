@@ -10,22 +10,74 @@
 			</div>
 		</div>
 		<div class="image-grid js">
-			<div class="image-grid__item image-grid__item-sizer"></div>
-			<a href="http://smstaging.net/simplemedia-new/works-agency-blazr.php" class="image-grid__item aspect-ratio-2-4" style="background: url(dist/img/agency_blazr_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-azzimato.php" class="image-grid__item aspect-ratio-1-1" style="background: url(dist/img/azzimato_03.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-cibo-divino.php" class="image-grid__item aspect-ratio-2-4" style="background: url(dist/img/cibo_divino_04.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-brennan-cosmetic.php" class="image-grid__item aspect-ratio-1-1" style="background: url(dist/img/dr_brennan_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-episcale.php" class="image-grid__item aspect-ratio-1-1" style="background: url(dist/img/episcale_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-kintz-group.php" class="image-grid__item aspect-ratio-2-4" style="background: url(dist/img/kintznow_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-northern-lights.php" class="image-grid__item aspect-ratio-1-1" style="background: url(dist/img/northern_lights_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-email-experience.php" class="image-grid__item image-grid__item--full aspect-ratio-2-1" style="background: url(dist/img/ecc_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-overly.php" class="image-grid__item aspect-ratio-1-1" style="background: url(dist/img/overly_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-sally-evans.php" class="image-grid__item aspect-ratio-1-1" style="background: url(dist/img/sally_evans_02.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-my-directives.php" class="image-grid__item image-grid__item--full aspect-ratio-2-1" style="background: url(dist/img/my_directive_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-adestra.php" class="image-grid__item aspect-ratio-1-1" style="background: url(dist/img/adestra_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-cantu.php" class="image-grid__item aspect-ratio-1-1" style="background: url(dist/img/cantu_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-cry-havoc.php" class="image-grid__item aspect-ratio-1-1" style="background: url(dist/img/cry_havoc_01.jpg) no-repeat center / cover"></a>
-			<a href="http://smstaging.net/simplemedia-new/works-parking-day.php" class="image-grid__item aspect-ratio-1-1" style="background: url(dist/img/parking_day_01.jpg) no-repeat center / cover"></a>
+		<div class="image-grid__item image-grid__item-sizer"></div>
+		<?php
+//$config->object_type = 'our-works';
+//include("cosmicjs.php");
+	//echo "dsa";
+	
+	
+	$objects = $cosmicjs->getObjectType();
+	//print_r($objects);
+			//echo "here";
+			//print_r($objects);
+			$header_image ='';
+		$services = '';
+		$aspect_ratio =  '';
+		$extra_classes = '';
+		//print_r($objects);
+	foreach($objects as $data1)
+	{
+		//echo $data1->slug;
+		
+		foreach($data1 as $meta1)
+			{
+				
+				
+				
+				foreach($meta1->metafields as $head_image)
+				{
+				//print_r($head_image);
+				
+					$test = (array)$head_image;
+					
+					if($test['key']=='header_image')
+					{
+						//echo $test['url'];
+					//print_r($test);
+					$header_image = $test['url'];
+					}
+						if($test['key']=='services')
+					{
+					//	print_r($test);
+					$services = $test['value'];
+					}
+					
+					if($test['key']=='aspect_ratio')
+					{
+					//	print_r($test);
+					$aspect_ratio =  $test['value'];
+					}
+						if($test['key']=='extra_classes')
+					{
+					//	print_r($test);
+					$extra_classes =  $test['value'];
+					}
+					
+				}
+					
+			
+		?>
+       <a href="work-detail.php?slug=<?php echo $meta1->slug; ?>" class="image-grid__item <?php echo $aspect_ratio; ?> <?php echo $extra_classes; ?>" style="background: url(<?php echo $header_image; ?>) no-repeat center / cover"></a>
+			
+		
+			<?php
+				
+			}
+		
+	}
+
+			?>
 		</div>
 	</div>
 	<!-- works -->

@@ -1,5 +1,5 @@
 <?php require_once('header.php'); ?>
-<?php require_once('navigation.php'); 
+<?php //require_once('navigation.php'); 
 $inc = '';
 ?>
 
@@ -39,11 +39,17 @@ $config->banner_slug = 'banner-video';
 //$config->object_slug = 'banner-video';
 $config->service_type = 'services';
 $config->object_type = 'our-works';
+$config->object_menu = 'menu';
+
+
+
 include("cosmicjs.php");
 $object = $cosmicjs->getObject();
+
 ?>
 
 <?php 
+require('navigation.php'); 
 if($inc=='main.php')
 {
 require_once('banner.php'); } ?>

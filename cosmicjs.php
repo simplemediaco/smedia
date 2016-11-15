@@ -9,6 +9,8 @@ class CosmicJS {
     $this->config = $config;
     $this->config->bucket_slug = $config->bucket_slug;
     $this->config->object_slug = $config->object_slug;
+	 $this->config->object_menu = $config->object_menu;
+	
     $this->config->read_key = $config->read_key;
     $this->config->write_key = $config->write_key;
     $this->config->url = "https://api.cosmicjs.com/v1/" . $this->config->bucket_slug;
@@ -19,11 +21,14 @@ class CosmicJS {
     $this->config->objects_url = $this->config->url . "/objects?read_key=" . $this->config->read_key;
     $this->config->object_url = $this->config->url . "/object/" . $this->config->object_slug . "?read_key=" . $this->config->read_key;
 	 $this->config->banner_url = $this->config->url . "/object/" . $this->config->banner_slug . "?read_key=" . $this->config->read_key;
+	 $this->config->menu_url = $this->config->url . "/object/" . $this->config->object_menu . "?read_key=" . $this->config->read_key;
+
     $this->config->media_url = $this->config->url . "/media?read_key=" . $this->config->read_key;
     $this->config->add_object_url = $this->config->url . "/add-object?write_key=" . $this->config->write_key;
     $this->config->edit_object_url = $this->config->url . "/edit-object?write_key=" . $this->config->write_key;
     $this->config->delete_object_url = $this->config->url . "/delete-object?write_key=" . $this->config->write_key;
   }
+ 
   // Get all objects
   public function getObjects(){
 	//  echo $this->config->objects_url;
@@ -53,11 +58,24 @@ class CosmicJS {
     $data = json_decode($this->curl->get($this->config->banner_url));
     return $data;
   }
+  
+     public function getMenu(){
+    $data = json_decode($this->curl->get($this->config->menu_url));
+    return $data;
+  }
   // Get all object
   public function getObject(){
     $data = json_decode($this->curl->get($this->config->object_url));
     return $data;
   }
+   public function getgeneric($objSlug){
+	$objUrl = $this->config->url . "/object/" . $objSlug . "?read_key=" . $this->config->read_key;
+   //echo $objUrl;
+   //exit('23');
+    $data = json_decode($this->curl->get($objUrl));
+    return $data;
+  }
+  
   // Get media
   public function getMedia(){
     $data = json_decode($this->curl->get($this->config->media_url));

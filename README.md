@@ -1,30 +1,58 @@
+[![Cosmic JS Logo](https://cosmicjs.com/images/marketing/logo-w-brand.jpg)](https://cosmicjs.com/)
+===
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+### Getting started
+Go to [https://cosmicjs.com](https://cosmicjs.com), create an account and setup a bucket.
 
+### Install
+```
+git clone https://github.com/cosmicjs/cosmicjs-php
+```
+### Usage
+```php
+<?php
+/* !!!! CONFIGURE !!!!
+==================================== */
+$config = new stdClass();
+$config->bucket_slug = "driver-example"; // bucket slug
+$config->read_key = ""; // leave empty if not required
+$config->write_key = ""; // leave empty if not required
+include("cosmicjs.php");
 
-Hi there! Welcome to Cloud9 IDE!
+/* Add
+================================= */
+$object_string = '{
+  "type_slug": "pages",
+  "title": "Test Title",
+  "content": "here is some test content",
+  "write_key": "' . $config->write_key . '"
+}';
+$object = $cosmicjs->addObject($object_string);
 
-To get you started, we have created a small hello world application.
+/* Edit
+================================= */
+$object_string = '{
+  "slug": "test-title",
+  "title": "New Title",
+  "content": "here is some NEW test content",
+  "write_key": "' . $config->write_key . '"
+}';
+$object = $cosmicjs->editObject($object_string);
 
-1) Open the hello-world.php file
+/* Delete
+================================= */
+$object_string = '{
+  "slug": "test-title",
+  "write_key": "' . $config->write_key . '"
+}';
+$object = $cosmicjs->deleteObject($object_string);
 
-2) Follow the run instructions in the file's comments
+/* Get Objects
+================================= */
+$objects = $cosmicjs->getObjects();
 
-3) If you want to look at the Apache logs, check out ~/lib/apache2/log
-
-And that's all there is to it! Just have fun. Go ahead and edit the code, 
-or add new files. It's all up to you! 
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+/* Get Media
+================================= */
+$media = $cosmicjs->getMedia();
+?>
+```

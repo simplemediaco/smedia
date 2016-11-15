@@ -8,7 +8,17 @@
 	</div>
 	<div class="navigation__menu js">
 		<ul class="navigation__menu-wrap">
-			<li class="navigation__menu-item"><a href="http://smstaging.net/simplemedia-new/" class="navigation__menu-link font-f-simplifica font-c-white">Home</a></li>
+			<li class="navigation__menu-item"><a href="<?php echo $_SERVER['HTTP_HOST']; ?>" class="navigation__menu-link font-f-simplifica font-c-white">Home</a></li>
+          
+            <?php
+$menu = $cosmicjs->getMenu();
+$menu_list = $menu->object->metafields;
+foreach($menu_list as $item)
+{
+echo $item->value;
+?>
+
+<?php } ?>
 			<li class="navigation__menu-item"><a href="http://smstaging.net/simplemedia-new/services.php" class="navigation__menu-link font-f-simplifica font-c-white">Services</a></li>
 			<li class="navigation__menu-item"><a href="http://smstaging.net/simplemedia-new/order.php" class="navigation__menu-link font-f-simplifica font-c-white">Order</a></li>
 			<li class="navigation__menu-item"><a href="http://smstaging.net/simplemedia-new/works.php" class="navigation__menu-link font-f-simplifica font-c-white">Works</a></li>
